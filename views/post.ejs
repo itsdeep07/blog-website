@@ -1,0 +1,29 @@
+<%- include('partials/header'); %>
+
+    <h1>
+        <%= title %>
+    </h1>
+
+    <p>
+        <%= content %>
+    </p>
+
+    <hr>
+    <h4>Comments Section: </h4>
+
+    <% comments.forEach(function(comment){ %>
+        <p>
+            <%=comment.content.substring(0, 100) + " ..." %><a>Read More</a>
+        </p>
+        <%})%>
+
+            <form action="/posts/:topic" method="post">
+                <div class="form-group">
+                    <textarea name="commentContent" id="" cols="120" rows="5" class="form-control"></textarea>
+
+                </div>
+                <button type="submit" name="button" class="btn btn-primary">Post Comment</button>
+            </form>
+
+
+            <%- include('partials/footer'); %>
